@@ -169,7 +169,7 @@ const Button = styled.button(props => css`
 `)
 
 function App () {
-  const { isDarkMode, toggle, enable, disable } = useDarkMode()
+  const { isDarkMode, toggle } = useDarkMode()
   const [message, setMessage] = useLocalStorage('message', window.localStorage.getItem('message') ?? '')
   const [timeRemaining, setTimeRemaining] = useState(0)
   const handleChange = event => {
