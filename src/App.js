@@ -150,7 +150,7 @@ function App () {
         </PageHeading>
       </StyledSection>
       <StyledSection grow>
-        <TextDisplay>{message.split(/(?<=\.\s)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}</span> : <span key='empty' />)}</TextDisplay>
+        <TextDisplay aria-hidden>{message.split(/(?<=\.\s)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}</span> : <span key='empty' />)}</TextDisplay>
         <StyledTextarea onChange={handleChange} placeholder='Write here...' value={message} spellCheck={false} />
       </StyledSection>
       <StyledSection>
