@@ -1,7 +1,19 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import styled, { css, keyframes } from 'styled-components'
-import { useInterval, useLocalStorage } from 'usehooks-ts'
+import styled, { createGlobalStyle, ThemeProvider, css } from 'styled-components'
+import { useDarkMode, useInterval, useLocalStorage } from 'usehooks-ts'
+import { theme } from './theme.js'
+import { ThemeIcon } from './ThemeIcon.js'
+
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('PlayfairDisplay-VariableFont_wght.ttf');
+  }
+  body {
+    background-color: ${props => props.theme.background};
+  }
+`
 
 const StyledMain = styled.main(props => css`
   width: 100%;
@@ -10,7 +22,8 @@ const StyledMain = styled.main(props => css`
   display: flex;
   flex-flow: column;
   gap: 1rem;
-  background: #faf5e9;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.background};
   align-items: center;
 `)
 
@@ -18,35 +31,38 @@ const StyledSpan = styled.span(props => css`
   display: inline-block;
   font-weight: ${props => props.weight};
   opacity: ${props => props.opacity};
-  transition: all 6s ease;
 `)
 
-const writingFade = keyframes`
-  0% {
-    font-weight: 900;
-    opacity: 1;
-  }
-  50% {
-    font-weight: 400;
-    opacity: 0.25;
-  }
-  100% {
-    font-weight: 900;
-    opacity: 1;
-  }
-`
+// const writingFade = keyframes`
+//   0% {
+//     font-weight: 900;
+//     opacity: 1;
+//   }
+//   50% {
+//     font-weight: 400;
+//     opacity: 0.25;
+//   }
+//   100% {
+//     font-weight: 900;
+//     opacity: 1;
+//   }
+// `
 
-const AnimatedLetter = styled.span(props => css`
-  display: inline-block;
-  animation: ${writingFade} 60s infinite;
-  animation-delay: ${props => props.delay * 3}s;
-`)
+// const AnimatedLetter = styled.span(props => css`
+//   display: inline-block;
+//   animation: ${writingFade} 60s infinite;
+//   animation-delay: ${props => props.delay * 3}s;
+// `)
 
 const StyledSection = styled.section(props => css`
   width: 65ch;
   max-width: 95%;
   position: relative;
+  display: flex;
+  flex-flow: ${props => props.horizontal ? 'row wrap' : 'column'};
   flex-grow: ${props => props.grow ? '1' : '0'};
+  justify-content: ${props => props.justify ?? 'unset'};
+  align-items: ${props => props.align ?? 'unset'};
 `)
 
 const PageHeading = styled.h1(props => css`
@@ -68,7 +84,7 @@ const StyledTextarea = styled.textarea(props => css`
   transition: all 0.3s ease;
   font-size: 1.25rem;
   font-weight: 500;
-  caret-color: #000;
+  caret-color: ${props => props.theme.text};
   color: rgba(0,0,0,0);
   &:focus {
     outline: none;
@@ -124,7 +140,36 @@ const TimeRemainingFormat = props => {
   return (<>These words will disappear in {hours > 0 ? `${hours} hour${hours > 1 ? 's' : ''} and` : ''} {minutes} minute{minutes === 1 ? '' : 's'}</>)
 }
 
+const Button = styled.button(props => css`
+  outline: none;
+  background: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  & {
+    * {
+      transform-origin: center;
+      transform: scale(0.9);
+      transition: all 0.2s ease;
+    }
+  }
+  &:hover, &:focus {
+    opacity: 1;
+    * {
+      transform: scale(1);
+    }
+  }
+  &:active {
+    * {
+      transform: scale(0.9);
+    }
+  }
+`)
+
 function App () {
+  const { isDarkMode, toggle, enable, disable } = useDarkMode()
   const [message, setMessage] = useLocalStorage('message', window.localStorage.getItem('message') ?? '')
   const [timeRemaining, setTimeRemaining] = useState(0)
   const handleChange = event => {
@@ -143,22 +188,28 @@ function App () {
   , [timeRemaining])
   useInterval(() => setTimeRemaining(new Date(window.localStorage.getItem('expiryDate')).getTime() - new Date().getTime()), 500)
   return (
-    <StyledMain>
-      <StyledSection>
-        <PageHeading>
-          <FadingText text='Delible ink.' />
-        </PageHeading>
-      </StyledSection>
-      <StyledSection grow>
-        <TextDisplay aria-hidden>{message.split(/(?<=\.\s)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}</span> : <span key='empty' />)}</TextDisplay>
-        <StyledTextarea onChange={handleChange} placeholder='Write here...' value={message} spellCheck={false} />
-      </StyledSection>
-      <StyledSection>
-        <TimeRemainingText visible={message.length > 0}>
-          <TimeRemainingFormat seconds={timeRemaining} />
-        </TimeRemainingText>
-      </StyledSection>
-    </StyledMain>
+    <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
+      <GlobalStyle />
+      <StyledMain>
+        <StyledSection horizontal justify='space-between' align='center'>
+          <PageHeading>
+            <FadingText text='Delible ink.' />
+          </PageHeading>
+          <Button onClick={toggle} aria-label={`Change to ${isDarkMode ? 'light' : 'dark'} theme`}>
+            <ThemeIcon size={24} />
+          </Button>
+        </StyledSection>
+        <StyledSection grow>
+          <TextDisplay aria-hidden>{message.split(/(?<=\.\s)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}</span> : <span key='empty' />)}</TextDisplay>
+          <StyledTextarea onChange={handleChange} placeholder='Write here...' value={message} spellCheck={false} />
+        </StyledSection>
+        <StyledSection>
+          <TimeRemainingText visible={message.length > 0}>
+            <TimeRemainingFormat seconds={timeRemaining} />
+          </TimeRemainingText>
+        </StyledSection>
+      </StyledMain>
+    </ThemeProvider>
   )
 }
 
