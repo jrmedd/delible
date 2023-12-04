@@ -5,7 +5,7 @@ const StyledTextarea = styled.textarea(props => css`
   outline: none;
   border: 0;
   padding: 0;
-  font-family: 'PlayfairDisplay';
+  font-family: 'PlayfairDisplay', Georgia, serif;
   min-height: 66vh;
   height: 100%;
   box-sizing: border-box;

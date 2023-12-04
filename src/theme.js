@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'PlayfairDisplay';
     src: url('PlayfairDisplay-VariableFont_wght.ttf');
+    font-display: swap;
   }
   body {
     background-color: ${props => props.theme.background};

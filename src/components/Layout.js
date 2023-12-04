@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 export const StyledMain = styled.main(props => css`
   width: 100%;
   height: 100vh;
-  font-family: 'PlayfairDisplay';
+  font-family: 'PlayfairDisplay', Georgia, serif;
   display: flex;
   flex-flow: column;
   gap: 1rem;
