@@ -1,9 +1,0 @@
-@font-face {
-  font-family: 'PlayfairDisplay';
-  src: url('PlayfairDisplay-VariableFont_wght.ttf');
-}
-
-body {
-  background-color: rgb(250, 245, 234);
-  color: rgb(0, 0, 0);
-}
