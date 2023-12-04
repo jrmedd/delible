@@ -21,4 +21,5 @@ If you think it might help you out, try it out https://delible.ink
 Delible ink is **completely private** by default and doesn't share any data with the rest of the web. Instances where someone else might be able to view what you write include:
 
 1. If you share a web browser with someone but don't use individual system logins or [browser profiles](https://www.wired.com/story/how-to-use-browser-profiles-organization-chrome-edge-firefox/).
+2. If you have an extension installed that can read and manage data on a web page. You can [control this in settings on Chrome](https://support.google.com/chrome_webstore/answer/2664769?hl=en-GB) if you are concerned about a particular extension. You can find similar instructions for other browsers with a quick search of your browser name and privacy / extension settings.
 
