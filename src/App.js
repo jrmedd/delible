@@ -192,7 +192,7 @@ function App () {
       <GlobalStyle />
       <StyledMain>
         <StyledSection horizontal justify='space-between' align='center'>
-          <PageHeading>
+          <PageHeading aria-label='Delible ink'>
             <FadingText text='Delible ink.' />
           </PageHeading>
           <Button onClick={toggle} aria-label={`Change to ${isDarkMode ? 'light' : 'dark'} theme`}>
@@ -201,7 +201,7 @@ function App () {
         </StyledSection>
         <StyledSection grow>
           <TextDisplay aria-hidden>{message.split(/(?<=\.\s)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}</span> : <span key='empty' />)}</TextDisplay>
-          <StyledTextarea onChange={handleChange} placeholder='Write here...' value={message} spellCheck={false} />
+          <StyledTextarea aria-label='Text you want to disappear' onChange={handleChange} placeholder='Write here...' value={message} spellCheck={false} />
         </StyledSection>
         <StyledSection>
           <TimeRemainingText visible={message.length > 0}>
