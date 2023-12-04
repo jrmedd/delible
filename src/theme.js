@@ -1,3 +1,5 @@
+import { createGlobalStyle } from 'styled-components'
+
 export const theme = {
   dark: {
     text: 'rgb(250, 245, 234)',
@@ -8,3 +10,12 @@ export const theme = {
     background: 'rgb(250, 245, 234)'
   }
 }
+export const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('PlayfairDisplay-VariableFont_wght.ttf');
+  }
+  body {
+    background-color: ${props => props.theme.background};
+  }
+`
