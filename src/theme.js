@@ -18,5 +18,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     background-color: ${props => props.theme.background};
+    font-family: 'PlayfairDisplay', Georgia, serif;
   }
 `
