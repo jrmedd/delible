@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 const StyledSVG = styled.svg(props => css`
   display: inline-block;
-  & g {
+  & path {
     fill: ${props => props.theme.text};
   }
 `)

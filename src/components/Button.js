@@ -26,4 +26,7 @@ export const Button = styled.button(props => css`
       transform: scale(0.9);
     }
   }
+  &:visited {
+    color: ${props => props.theme.text};
+  }
 `)
