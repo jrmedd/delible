@@ -19,9 +19,7 @@ function App () {
   const [displayingAbout, setDisplayingAbout] = useState(false)
 
   const handleChange = event => {
-    if (event.nativeEvent.inputType !== 'insertLineBreak') {
-      setMessage(event.target.value.replace(/\s\s+/g, ' '))
-    }
+    setMessage(event.target.value.replace(/[^\S\n][^\S\n]+/g, ' ').replace(/\n[^\S\n]/, '\n'))
   }
   useEffect(() => {
     if (!window.localStorage.getItem('expiryDate') || new Date() > new Date(window.localStorage.getItem('expiryDate'))) {
