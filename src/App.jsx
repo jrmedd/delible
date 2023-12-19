@@ -13,7 +13,7 @@ import { AboutIcon } from './components/icons/AboutIcon.jsx'
 import { AboutModal } from './components/AboutModal.jsx'
 import { SimpleCrypto } from './SimpleCrypto.js'
 
-function App() {
+function App () {
   const sc = new SimpleCrypto()
   const { isDarkMode, toggle } = useDarkMode()
   const [writing, setWriting] = useLocalStorage('writing', window.localStorage.getItem('writing') ?? '')
@@ -39,7 +39,7 @@ function App() {
       window.localStorage.setItem('expiryDate', expiryDate)
     }
   }
-    , [timeRemaining])
+  , [timeRemaining])
   useInterval(() => setTimeRemaining(new Date(window.localStorage.getItem('expiryDate')).getTime() - new Date().getTime()), 500)
   return (
     <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
