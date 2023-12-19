@@ -16,7 +16,7 @@ export const AboutModal = props => (
   <Modal title={props.title} isOpen={props.isOpen} onClose={props.onClose}>
     <StyledSection fullWidth>
       <Paragraph>My therapist recently asked me to start writing things down. The purpose of this writing isn't to record anything, just to get it out of my brain. Doing this repeatedly helps me to get things straight, and form positive mental pathways for things that I don't do habitually. I don't like to waste paper, so I created Delible Ink.</Paragraph>
-      <Paragraph>Unlike indelible ink, this ink won't last longer than a day. Anything you type into it is totally private and disappears completely at midnight. It's minimal and unobtrusive, so I can focus on getting my thoughts down without too much distraction.</Paragraph>
+      <Paragraph>Unlike indelible ink, this ink won't last longer than a day. Anything you type into it is totally private and disappears completely at midnight (<Link href='https://github.com/jrmedd/delible#safety-'>safety details</Link>). It's minimal and unobtrusive, so I can focus on getting my thoughts down without too much distraction.</Paragraph>
     </StyledSection>
     <StyledSection fullWidth>
       <MinorHeading>About me</MinorHeading>
