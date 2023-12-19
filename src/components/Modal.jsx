@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
-import { Button } from './Button.js'
-import { CloseIcon } from './icons/CloseIcon.js'
-import { StyledSection } from './Layout.js'
-import { SubHeading } from './Typography.js'
+import { Button } from './Button.jsx'
+import { CloseIcon } from './icons/CloseIcon.jsx'
+import { StyledSection } from './Layout.jsx'
+import { SubHeading } from './Typography.jsx'
 import { useEffect, useRef } from 'react'
 import FocusTrap from 'focus-trap-react'
 

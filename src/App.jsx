@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { useDarkMode, useInterval, useLocalStorage } from 'usehooks-ts'
 import { GlobalStyle, theme } from './theme.js'
-import { ThemeIcon } from './components/icons/ThemeIcon.js'
-import { FadingText } from './components/FadingText.js'
-import { Button } from './components/Button.js'
-import { ButtonToolbar, StyledMain, StyledSection } from './components/Layout.js'
-import { FadingTextInput } from './components/FadingTextInput.js'
-import { TimeRemaining } from './components/TimeRemaining.js'
-import { PageHeading } from './components/Typography.js'
-import { AboutIcon } from './components/icons/AboutIcon.js'
-import { AboutModal } from './components/AboutModal.js'
+import { ThemeIcon } from './components/icons/ThemeIcon.jsx'
+import { FadingText } from './components/FadingText.jsx'
+import { Button } from './components/Button.jsx'
+import { ButtonToolbar, StyledMain, StyledSection } from './components/Layout.jsx'
+import { FadingTextInput } from './components/FadingTextInput.jsx'
+import { TimeRemaining } from './components/TimeRemaining.jsx'
+import { PageHeading } from './components/Typography.jsx'
+import { AboutIcon } from './components/icons/AboutIcon.jsx'
+import { AboutModal } from './components/AboutModal.jsx'
 import { SimpleCrypto } from './SimpleCrypto.js'
 
-function App () {
+function App() {
   const sc = new SimpleCrypto()
   const { isDarkMode, toggle } = useDarkMode()
   const [writing, setWriting] = useLocalStorage('writing', window.localStorage.getItem('writing') ?? '')
@@ -39,7 +39,7 @@ function App () {
       window.localStorage.setItem('expiryDate', expiryDate)
     }
   }
-  , [timeRemaining])
+    , [timeRemaining])
   useInterval(() => setTimeRemaining(new Date(window.localStorage.getItem('expiryDate')).getTime() - new Date().getTime()), 500)
   return (
     <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
