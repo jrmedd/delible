@@ -23,7 +23,6 @@ function App () {
 
   useEffect(() => {
     if (writing.length > 0) sc.decryptText(writing).then(text => setDisplayedWriting(text))
-    console.log('decrypted')
   }, [writing])
 
   const handleChange = event => {
