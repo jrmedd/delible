@@ -8,9 +8,9 @@ const StyledTextarea = styled.textarea(props => css`
   font-family: 'PlayfairDisplay', Georgia, serif;
   min-height: 66vh;
   height: 100%;
+  line-height: 150%;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0);
-  border-radius: .6rem;
   resize: none;
   transition: all 0.3s ease;
   font-size: 1.25rem;
@@ -42,11 +42,12 @@ const TextDisplay = styled.p(props => {
     pointer-events: none;
     font-size: 1.25rem;
     font-weight: 500;
+    line-height: 150%;
 `)
 })
 export const FadingTextInput = props => (
   <>
-    <TextDisplay aria-hidden>{props.value.split(/(?<=\.\s)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}</span> : <span key='empty' />)}</TextDisplay>
+    <TextDisplay aria-hidden>{props.value.split(/(?<=\.\s|\n)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}{sentence.includes('\n') && <br />}</span> : <span key='empty' />)}</TextDisplay>
     <StyledTextarea aria-label={props.accessibleLabel} onChange={props.onChange} placeholder={props.placeholder} value={props.value} spellCheck={false} />
   </>
 )
