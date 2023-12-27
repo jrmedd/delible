@@ -7,11 +7,12 @@ import { useEffect, useRef } from 'react'
 import FocusTrap from 'focus-trap-react'
 
 const Overlay = styled.div(pops => css`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  overflow: auto;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
