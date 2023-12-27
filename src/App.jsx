@@ -5,7 +5,7 @@ import { GlobalStyle, theme } from './theme.js'
 import { ThemeIcon } from './components/icons/ThemeIcon.jsx'
 import { FadingText } from './components/FadingText.jsx'
 import { Button } from './components/Button.jsx'
-import { ButtonToolbar, StyledMain, StyledSection } from './components/Layout.jsx'
+import { ButtonToolbar, StyledContainer, StyledSection } from './components/Layout.jsx'
 import { FadingTextInput } from './components/FadingTextInput.jsx'
 import { TimeRemaining } from './components/TimeRemaining.jsx'
 import { PageHeading } from './components/Typography.jsx'
@@ -45,8 +45,8 @@ function App () {
     <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
       <GlobalStyle />
       <AboutModal title='About' isOpen={displayingAbout} onClose={() => setDisplayingAbout(false)} />
-      <StyledMain>
-        <StyledSection horizontal justify='space-between' align='center'>
+      <StyledContainer>
+        <StyledSection as='header' $horizontal $justify='space-between' $align='center'>
           <PageHeading aria-label='Delible ink'>
             <FadingText text='Delible ink.' />
           </PageHeading>
@@ -59,13 +59,13 @@ function App () {
             </Button>
           </ButtonToolbar>
         </StyledSection>
-        <StyledSection grow>
-          <FadingTextInput id='text-do-disappear' value={displayedWriting} onChange={handleChange} accessibleLabel='Text you want to disappear' placeholder='Write here...' />
+        <StyledSection as='main' $grow>
+          <FadingTextInput id='text-to-disappear' value={displayedWriting} onChange={handleChange} accessibleLabel='Text you want to disappear' describedBy='time-remaining' placeholder='Write here...' />
         </StyledSection>
-        <StyledSection>
-          <TimeRemaining seconds={timeRemaining} visible={displayedWriting.length > 0} />
+        <StyledSection as='footer'>
+          <TimeRemaining id='time-remaining' seconds={timeRemaining} visible={displayedWriting.length > 0} />
         </StyledSection>
-      </StyledMain>
+      </StyledContainer>
     </ThemeProvider>
   )
 }

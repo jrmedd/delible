@@ -45,7 +45,7 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
     <Overlay>
       <FocusTrap>
         <ModalWrapper aria-modal='true' aria-labelledby={modalId}>
-          <StyledSection horizontal justify='space-between' align='center' fullWidth>
+          <StyledSection $horizontal $justify='space-between' $align='center' $fullWidth>
             <SubHeading ref={initialFocus} tabIndex='-1' id={modalId}>{title}</SubHeading>
             <Button aria-label={`Close "${title}"`} onClick={onClose}>
               <CloseIcon size={24} />

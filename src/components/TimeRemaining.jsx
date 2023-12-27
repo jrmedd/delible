@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 const TimeRemainingText = styled.p(props => css`
   font-size: 1rem;
-  opacity: ${props => props.visible ? 1 : 0};
+  opacity: ${props => props.$visible ? 1 : 0};
   transition: opacity 1s ease;
 `)
 
@@ -13,7 +13,7 @@ const TimeRemainingFormat = props => {
 }
 
 export const TimeRemaining = props => (
-  <TimeRemainingText visible={props.visible}>
+  <TimeRemainingText id={props.id} $visible={props.visible}>
     <TimeRemainingFormat seconds={props.seconds} />
   </TimeRemainingText>
 )
