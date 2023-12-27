@@ -20,6 +20,9 @@ const StyledTextarea = styled.textarea(props => css`
   &:focus {
     outline: none;
   }
+  &::-moz-placeholder {
+    color: ${props => props.theme.text};
+  }
 `)
 const TextDisplay = styled.p(props => {
   const numLetters = props.children.length
@@ -48,6 +51,6 @@ const TextDisplay = styled.p(props => {
 export const FadingTextInput = props => (
   <>
     <TextDisplay aria-hidden>{props.value.split(/(?<=\.\s|\n)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}{sentence.includes('\n') && <br />}</span> : <span key='empty' />)}</TextDisplay>
-    <StyledTextarea id={props.id} aria-label={props.accessibleLabel} onChange={props.onChange} placeholder={props.placeholder} value={props.value} spellCheck={false} />
+    <StyledTextarea id={props.id} aria-label={props.accessibleLabel} aria-describedby={props.describedBy} onChange={props.onChange} placeholder={props.placeholder} value={props.value} spellCheck={false} />
   </>
 )
