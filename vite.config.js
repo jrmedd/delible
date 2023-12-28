@@ -30,6 +30,7 @@ export default defineConfig({
       manifest: {
         name: 'Delible ink.',
         short_name: 'Delible ink.',
+        description: 'Delible ink isn’t permanent. Put down your thoughts and they’ll fade at the end of the day.',
         icons: [
           {
             src: '/android-chrome-192x192.png',
@@ -57,8 +58,36 @@ export default defineConfig({
         theme_color: '#faf5e9',
         background_color: '#faf5e9',
         start_url: 'https://delible.ink',
+        scope: 'https://delible.ink',
+        id: '?homescreen=1',
         display: 'standalone',
-        orientation: 'portrait'
+        orientation: 'portrait',
+        display_override: [
+          'standalone',
+          'window-controls-overlay'
+        ],
+        launch_handler: {
+          client_mode: 'focus-existing'
+        },
+        handle_links: 'preferred',
+        dir: 'ltr',
+        categories: ['health', 'lifestyle', 'utilities'],
+        screenshots: [
+          {
+            src: 'delible-ink-macos.webp',
+            sizes: '1280x800',
+            type: 'image/webp',
+            form_factor: 'wide',
+            label: 'Delible Ink. on macOS'
+          },
+          {
+            src: 'delible-ink-ios.webp',
+            sizes: '1290x2796',
+            type: 'image/webp',
+            form_factor: 'narrow',
+            label: 'Delible Ink. on iOS'
+          }
+        ]
       }
     })
   ]
