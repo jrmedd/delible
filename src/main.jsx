@@ -5,7 +5,7 @@ import { registerSW } from 'virtual:pwa-register'
 
 const updateSW = registerSW({
   onNeedRefresh () {
-    if (window.confirm('New content available. Reload?')) {
+    if (window.confirm('Delible Ink. has been updated. Reload?')) {
       updateSW(true)
     }
   }
