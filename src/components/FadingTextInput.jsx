@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
 
 const StyledTextarea = styled.textarea(props => css`
@@ -7,12 +8,11 @@ const StyledTextarea = styled.textarea(props => css`
   padding: 0;
   font-family: 'PlayfairDisplay', Georgia, serif;
   min-height: 66vh;
-  height: 100%;
+  height: ${props => props.$height}px;
   line-height: 150%;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0);
   resize: none;
-  transition: all 0.3s ease;
   font-size: 1.25rem;
   font-weight: 500;
   caret-color: ${props => props.theme.text};
@@ -22,6 +22,9 @@ const StyledTextarea = styled.textarea(props => css`
   }
   &::-moz-placeholder {
     color: ${props => props.theme.text};
+  }
+  &::-webkit-scrollbar {
+    display: none;
   }
 `)
 const TextDisplay = styled.p(props => {
@@ -48,9 +51,25 @@ const TextDisplay = styled.p(props => {
     line-height: 150%;
 `)
 })
-export const FadingTextInput = props => (
-  <>
-    <TextDisplay aria-hidden>{props.value.split(/(?<=\.\s|\n)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}{sentence.includes('\n') && <br />}</span> : <span key='empty' />)}</TextDisplay>
-    <StyledTextarea id={props.id} aria-label={props.accessibleLabel} aria-describedby={props.describedBy} onChange={props.onChange} placeholder={props.placeholder} value={props.value} spellCheck={false} />
-  </>
-)
+export const FadingTextInput = props => {
+  const textareaRef = useRef(null)
+  const idealHeight = useRef(32)
+  const lastScrollHeight = useRef(30)
+  useEffect(() => {
+    if (textareaRef) {
+      textareaRef.current.style.height = '0px'
+      const scrollHeight = textareaRef.current.scrollHeight
+      textareaRef.current.removeAttribute('style')
+      const delta = scrollHeight - lastScrollHeight.current
+      lastScrollHeight.current = scrollHeight
+      idealHeight.current = idealHeight.current + delta
+    }
+  }, [props.value])
+
+  return (
+    <>
+      <TextDisplay aria-hidden>{props.value.split(/(?<=\.\s|\n)/g).map((sentence, index) => sentence.length > 0 ? <span key={`split-${index}`}>{sentence}{sentence.includes('\n') && <br />}</span> : <span key='empty' />)}</TextDisplay>
+      <StyledTextarea $height={idealHeight.current} ref={textareaRef} id={props.id} aria-label={props.accessibleLabel} aria-describedby={props.describedBy} onChange={props.onChange} placeholder={props.placeholder} value={props.value} spellCheck={false} />
+    </>
+  )
+}
