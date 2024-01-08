@@ -16,6 +16,8 @@ Unlike indelible ink, this ink won't last longer than a day. Anything you type i
 
 If you think it might help you out, try it out https://delible.ink
 
+[![Get it from Microsoft](https://get.microsoft.com/images/en-gb%20dark.svg)](https://apps.microsoft.com/detail/Delible%20ink%2E/9MXBBNKN1T9X?launch=true&mode=mini)
+
 ## Safety 🔏
 
 Delible ink is **completely private** by design and doesn't share any data with the rest of the web. The application runs in your browser alone and **doesn't send any data back to a server**. Your text is kept until midnight in [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API), which means it is stored by the browser. There is a basic form of encryption to ensure the stored text is garbled until you personally open Delible Ink. Instances where someone else might be able to view what you write include:
