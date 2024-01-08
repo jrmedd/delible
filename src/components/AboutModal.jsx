@@ -5,6 +5,7 @@ import { Button } from './Button'
 import { Link, MinorHeading, Paragraph } from './Typography'
 import { EmailIcon } from './icons/EmailIcon'
 import { GitHubIcon } from './icons/GitHubIcon'
+import { KoFiIcon } from './icons/KoFiIcon'
 
 const LinkContainer = styled.div(props => css`
   display: flex;
@@ -31,6 +32,9 @@ export const AboutModal = props => (
         </Button>
         <Button aria-label='View Delible Ink on GitHub' as='a' href='https://github.com/jrmedd/delible'>
           <GitHubIcon size={32} />
+        </Button>
+        <Button aria-label='Support Delible Ink on Ko-fi' as='a' href='https://ko-fi.com/jamesmedd'>
+          <KoFiIcon size={32} />
         </Button>
       </LinkContainer>
     </StyledSection>
