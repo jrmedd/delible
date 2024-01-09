@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
+import { useVisibilityChange } from '../useVisibilityChange.js'
 
 const StyledTextarea = styled.textarea(props => css`
   width: 100%;
@@ -55,6 +56,12 @@ export const FadingTextInput = props => {
   const textareaRef = useRef(null)
   const idealHeight = useRef(32)
   const lastScrollHeight = useRef(30)
+  const appOpen = useVisibilityChange()
+
+  useEffect(() => {
+    textareaRef.current.blur()
+  }, [appOpen])
+
   useEffect(() => {
     if (textareaRef) {
       textareaRef.current.style.height = '0px'
