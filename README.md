@@ -16,7 +16,16 @@ Unlike indelible ink, this ink won't last longer than a day. Anything you type i
 
 If you think it might help you out, try it out https://delible.ink
 
-[![Get it from Microsoft](https://get.microsoft.com/images/en-gb%20dark.svg)](https://apps.microsoft.com/detail/Delible%20ink%2E/9MXBBNKN1T9X?launch=true&mode=mini)
+## Downloads
+
+You can reduce the potential for distraction further and continue to use the app offline with an installed version of the application. This can be done via the install buttons in particular browsers e.g. [Safari](https://support.apple.com/en-gb/104996), [Chrome](https://support.google.com/chrome/answer/9658361), and [Edge](https://support.microsoft.com/en-gb/topic/install-manage-or-uninstall-apps-in-microsoft-edge-0c156575-a94a-45e4-a54f-3a84846f6113).
+
+Alternatively, Delible ink. is also distributed via Google Play and the Microsoft Store.
+
+|Platform|Link|
+|---|---|
+|Android|<a href="https://play.google.com/store/apps/details?id=ink.delible.twa"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200" /></a>|
+Windows|&nbsp;&nbsp;<a href="https://apps.microsoft.com/detail/Delible%20ink%2E/9MXBBNKN1T9X?launch=true&mode=mini"><img alt="Get it on the Microsoft Store" src="https://get.microsoft.com/images/en-gb%20dark.svg" width="175" /></a>|
 
 ## Safety 🔏
 
