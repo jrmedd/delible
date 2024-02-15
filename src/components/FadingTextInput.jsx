@@ -17,6 +17,7 @@ const StyledTextarea = styled.textarea(props => css`
   font-weight: 500;
   caret-color: ${props => props.theme.text};
   color: rgba(0,0,0,0);
+  word-break: normal;
   &:focus {
     outline: none;
   }
@@ -49,6 +50,7 @@ const TextDisplay = styled.p(props => {
     font-size: 1.25rem;
     font-weight: 500;
     line-height: 150%;
+    word-break: normal;
 `)
 })
 export const FadingTextInput = props => {

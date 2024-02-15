@@ -16,7 +16,13 @@ Unlike indelible ink, this ink won't last longer than a day. Anything you type i
 
 If you think it might help you out, try it out https://delible.ink
 
-[![Get it from Microsoft](https://get.microsoft.com/images/en-gb%20dark.svg)](https://apps.microsoft.com/detail/Delible%20ink%2E/9MXBBNKN1T9X?launch=true&mode=mini)
+<a href="https://play.google.com/store/apps/details?id=ink.delible.twa">
+  <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200" />
+</a>
+<a href="https://apps.microsoft.com/detail/Delible%20ink%2E/9MXBBNKN1T9X?launch=true&mode=mini">
+
+  <img alt="Get it on the Microsoft Store" src="https://get.microsoft.com/images/en-gb%20dark.svg" width="175" style="padding:1rem;" />
+</a>
 
 ## Safety 🔏
 
