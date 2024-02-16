@@ -17,7 +17,7 @@ const StyledTextarea = styled.textarea(props => css`
   font-weight: 500;
   caret-color: ${props => props.theme.text};
   color: rgba(0,0,0,0);
-  word-break: normal;
+  word-break: break-word;
   &:focus {
     outline: none;
   }
@@ -36,6 +36,7 @@ const TextDisplay = styled.p(props => {
       ${Array(numLetters).fill('').map((_, index) => `span:nth-child(${index}){ opacity: ${0.25 + (index * fadeIncrement)};}`).join('')}
       span {
         display: inline;
+        word-break: break-word;
       }
     }
     padding: 0;
@@ -50,7 +51,7 @@ const TextDisplay = styled.p(props => {
     font-size: 1.25rem;
     font-weight: 500;
     line-height: 150%;
-    word-break: normal;
+    word-break: break-word;
 `)
 })
 export const FadingTextInput = props => {
