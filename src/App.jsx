@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { useDarkMode, useInterval, useLocalStorage } from 'usehooks-ts'
+import '@khmyznikov/pwa-install'
+
 import { GlobalStyle, theme } from './theme.js'
 import { ThemeIcon } from './components/icons/ThemeIcon.jsx'
 import { FadingText } from './components/FadingText.jsx'
@@ -13,7 +15,12 @@ import { AboutIcon } from './components/icons/AboutIcon.jsx'
 import { AboutModal } from './components/AboutModal.jsx'
 import { SimpleCrypto } from './SimpleCrypto.js'
 
+function isRunningStandalone () {
+  return (window.matchMedia('(display-mode: standalone)').matches)
+}
+
 function App () {
+  const installer = useRef(null)
   const sc = new SimpleCrypto()
   const { isDarkMode, toggle } = useDarkMode()
   const [writing, setWriting] = useLocalStorage('writing', window.localStorage.getItem('writing') ?? '')
@@ -40,10 +47,18 @@ function App () {
     }
   }
   , [timeRemaining])
+  useEffect(() => {
+    if (installer.current) {
+      console.log(installer.current.underStandaloneMode)
+      console.log(Object.keys(installer.current))
+      if (!isRunningStandalone()) installer.current.showDialog(true)
+    }
+  }, [])
   useInterval(() => setTimeRemaining(new Date(window.localStorage.getItem('expiryDate')).getTime() - new Date().getTime()), 500)
   return (
     <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
       <GlobalStyle />
+      <pwa-install ref={installer} />
       <AboutModal title='About' isOpen={displayingAbout} onClose={() => setDisplayingAbout(false)} />
       <StyledContainer>
         <StyledSection as='header' $horizontal $justify='space-between' $align='center'>
