@@ -15,6 +15,10 @@ import { AboutIcon } from './components/icons/AboutIcon.jsx'
 import { AboutModal } from './components/AboutModal.jsx'
 import { SimpleCrypto } from './SimpleCrypto.js'
 
+function isRunningStandalone() {
+  return (window.matchMedia('(display-mode: standalone)').matches);
+}
+
 function App () {
   const installer = useRef(null)
   const sc = new SimpleCrypto()
@@ -45,7 +49,9 @@ function App () {
   , [timeRemaining])
   useEffect(() => {
     if (installer.current) {
-      if (!installer.current.underStandaloneMode) installer.current.showDialog(true)
+      console.log(installer.current.underStandaloneMode)
+      console.log(Object.keys(installer.current))
+      if (!isRunningStandalone()) installer.current.showDialog(true)
     }
   }, [])
   useInterval(() => setTimeRemaining(new Date(window.localStorage.getItem('expiryDate')).getTime() - new Date().getTime()), 500)
