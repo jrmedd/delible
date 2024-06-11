@@ -15,8 +15,8 @@ import { AboutIcon } from './components/icons/AboutIcon.jsx'
 import { AboutModal } from './components/AboutModal.jsx'
 import { SimpleCrypto } from './SimpleCrypto.js'
 
-function isRunningStandalone() {
-  return (window.matchMedia('(display-mode: standalone)').matches);
+function isRunningStandalone () {
+  return (window.matchMedia('(display-mode: standalone)').matches)
 }
 
 function App () {
