@@ -25,7 +25,7 @@ Alternatively, Delible ink. is also distributed via Google Play and the Microsof
 |Platform|Link|
 |---|---|
 |Android|<a href="https://play.google.com/store/apps/details?id=ink.delible.twa"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200" /></a>|
-Windows|&nbsp;&nbsp;<a href="https://apps.microsoft.com/detail/Delible%20ink%2E/9MXBBNKN1T9X?launch=true&mode=mini"><img alt="Get it on the Microsoft Store" src="https://get.microsoft.com/images/en-gb%20dark.svg" width="175" /></a>|
+Windows|&nbsp;&nbsp;<a href="https://apps.microsoft.com/detail/Delible%20ink%2E/9MXBBNKN1T9X?launch=true&mode=mini"><img alt="Get it on the Microsoft Store" src="https://get.microsoft.com/images/en-us%20dark.svg" width="180" /></a>|
 
 ## Safety 🔏
 
