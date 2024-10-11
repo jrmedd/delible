@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@khmyznikov/pwa-install": "^0.3.9",
+    "@jrmedd/pwa-install": "^0.4.7",
     "focus-trap-react": "^10.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

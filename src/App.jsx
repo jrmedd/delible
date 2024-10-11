@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { useDarkMode, useInterval, useLocalStorage } from 'usehooks-ts'
-import '@khmyznikov/pwa-install'
+import '@jrmedd/pwa-install'
 
 import { GlobalStyle, theme } from './theme.js'
 import { ThemeIcon } from './components/icons/ThemeIcon.jsx'
