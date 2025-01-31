@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "ink.delible.twa",
+        "sha256_cert_fingerprints": ["38:75:44:C2:EE:12:52:11:CB:E5:DB:4F:A6:0C:FF:51:D9:97:CA:F2:AB:97:24:19:86:82:3C:8F:76:CD:E7:AF"]
+      }
+    }]
